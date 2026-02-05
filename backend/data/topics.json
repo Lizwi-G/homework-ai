@@ -1,0 +1,21 @@
+[
+  {
+    "topic": "Dividing Fractions",
+    "grade": "7",
+    "subject": "Mathematics",
+    "keywords": ["divide fraction", "dividing fractions", "fraction division"],
+    "explanation": "To divide fractions: keep the first fraction, change division to multiplication, and flip (invert) the second fraction. Example: 2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6.",
+    "video": "https://www.youtube.com/watch?v=ZyTqfK5l3yk"
+  },
+  {
+    "topic": "Photosynthesis",
+    "grade": "7",
+    "subject": "Natural Sciences",
+    "keywords": ["photosynthesis", "plants make food", "chlorophyll"],
+    "explanation": "Photosynthesis is the process where green plants use sunlight, carbon dioxide, and water to make glucose (food) and release oxygen. It mostly happens in leaves.",
+    "video": "https://www.youtube.com/watch?v=UPBMG5EYydo"
+  }
+]
+
+
+

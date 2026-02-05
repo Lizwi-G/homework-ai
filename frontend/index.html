@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Homework Assistant</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">HA</div>
+        <div>
+          <div class="brand-title">Homework Assistant</div>
+          <div class="brand-sub">Grade 4–9 Support</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-view="home">
+          <span class="icon">🏠</span> Homework
+        </button>
+        <button class="nav-item" data-view="resources">
+          <span class="icon">📚</span> Resources
+        </button>
+        <button class="nav-item" data-view="saved">
+          <span class="icon">✅</span> Saved
+        </button>
+        <button class="nav-item" data-view="calculator">
+        <span class="icon">🧮</span> Calculator
+        </button>
+        <button class="nav-item disabled" title="Coming soon">
+          <span class="icon">📝</span> Blog
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="hint">
+          Tip: Choose grade + subject for better answers.
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 class="page-title" id="pageTitle">Homework</h1>
+          <p class="page-sub" id="pageSub">Ask a question and get help instantly.</p>
+        </div>
+      </header>
+
+      <!-- HOME VIEW -->
+      <section class="view active" id="view-home">
+        <div class="card">
+          <div class="controls">
+            <div class="field">
+              <label for="grade">Grade</label>
+              <select id="grade" title="Select your grade level">
+                <option value="">Select grade</option>
+                <option value="4">Grade 4</option>
+                <option value="5">Grade 5</option>
+                <option value="6">Grade 6</option>
+                <option value="7">Grade 7</option>
+                <option value="8">Grade 8</option>
+                <option value="9">Grade 9</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="subject">Subject</label>
+              <select id="subject" title="Select your subject">
+                <option value="">Select subject</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Natural Sciences">Natural Sciences</option>
+                <option value="English">English</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="askbox">
+            <textarea id="question" placeholder="Type your homework question here..."></textarea>
+            <div class="ask-actions">
+              <button class="btn btn-primary" id="askBtn">Ask</button>
+              <button class="btn btn-ghost" id="clearBtn">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="answer-head">
+            <div>
+              <div class="answer-title" id="answerTitle">Answer</div>
+              <div class="answer-sub" id="answerSub">Your explanation will appear here.</div>
+            </div>
+            <button class="btn btn-outline" id="saveBtn" disabled>Save</button>
+          </div>
+
+          <div class="answer-body" id="result">
+            Ask a question to get started.
+          </div>
+
+          <div class="answer-footer hidden" id="videoRow">
+            <a id="videoLink" target="_blank" rel="noopener">▶️ Watch a helpful video</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESOURCES VIEW -->
+      <section class="view" id="view-resources">
+        <div class="card">
+          <h2 class="section-title">Resources</h2>
+          <p class="muted">
+            Add your learning resources (Grade 4–9). This section can be upgraded later to show topics per grade & subject.
+          </p>
+          <ul class="resource-list">
+            <li>Grade 4 – Mathematics, English, Natural Sciences</li>
+            <li>Grade 5 – Mathematics, English</li>
+            <li>Grade 6 – Mathematics, Natural Sciences</li>
+            <li>Grade 7 – Mathematics, Natural Sciences</li>
+            <li>Grade 8 – Mathematics, Natural Sciences</li>
+            <li>Grade 9 – Mathematics, Natural Sciences</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SAVED VIEW -->
+      <section class="view" id="view-saved">
+        <div class="card">
+          <h2 class="section-title">Saved for Revision</h2>
+          <div id="savedEmpty" class="muted">No saved items yet.</div>
+          <ul id="savedList" class="saved-list"></ul>
+        </div>
+      </section>
+      <!-- CALCULATOR VIEW -->
+<section class="view" id="view-calculator">
+  <div class="card">
+    <h2 class="section-title">Calculator</h2>
+    <p class="muted">Fast, accurate, and keyboard-friendly.</p>
+
+    <div class="calc">
+      <div class="calc-display">
+        <div class="calc-history" id="calcHistory"></div>
+        <input class="calc-input" id="calcInput" type="text" placeholder="0" autocomplete="off" />
+      </div>
+
+      <div class="calc-grid sci">
+  <!-- row 1 -->
+  <button class="calc-btn ghost" data-act="clear">AC</button>
+  <button class="calc-btn ghost" data-act="back">⌫</button>
+  <button class="calc-btn ghost" data-act="toggleDeg">DEG</button>
+  <button class="calc-btn op" data-val="÷">÷</button>
+
+  <!-- row 2 -->
+  <button class="calc-btn ghost" data-act="mc">MC</button>
+  <button class="calc-btn ghost" data-act="mr">MR</button>
+  <button class="calc-btn ghost" data-act="mplus">M+</button>
+  <button class="calc-btn ghost" data-act="mminus">M-</button>
+
+  <!-- row 3 -->
+  <button class="calc-btn ghost" data-act="fn" data-fn="sin">sin</button>
+  <button class="calc-btn ghost" data-act="fn" data-fn="cos">cos</button>
+  <button class="calc-btn ghost" data-act="fn" data-fn="tan">tan</button>
+  <button class="calc-btn op" data-val="×">×</button>
+
+  <!-- row 4 -->
+  <button class="calc-btn ghost" data-act="fn" data-fn="log">log</button>
+  <button class="calc-btn ghost" data-act="fn" data-fn="ln">ln</button>
+  <button class="calc-btn ghost" data-act="const" data-const="pi">π</button>
+  <button class="calc-btn op" data-val="−">−</button>
+
+  <!-- row 5 -->
+  <button class="calc-btn ghost" data-act="unary" data-unary="sqrt">√</button>
+  <button class="calc-btn ghost" data-act="unary" data-unary="square">x²</button>
+  <button class="calc-btn ghost" data-act="pow">xʸ</button>
+  <button class="calc-btn op" data-val="+">+</button>
+
+  <!-- row 6 -->
+  <button class="calc-btn" data-val="7">7</button>
+  <button class="calc-btn" data-val="8">8</button>
+  <button class="calc-btn" data-val="9">9</button>
+  <button class="calc-btn ghost" data-val="%">%</button>
+
+  <!-- row 7 -->
+  <button class="calc-btn" data-val="4">4</button>
+  <button class="calc-btn" data-val="5">5</button>
+  <button class="calc-btn" data-val="6">6</button>
+  <button class="calc-btn ghost" data-act="unary" data-unary="inv">1/x</button>
+
+  <!-- row 8 -->
+  <button class="calc-btn" data-val="1">1</button>
+  <button class="calc-btn" data-val="2">2</button>
+  <button class="calc-btn" data-val="3">3</button>
+  <button class="calc-btn ghost" data-val="(">(</button>
+
+  <!-- row 9 -->
+  <button class="calc-btn ghost" data-val=")">)</button>
+  <button class="calc-btn" data-val="0">0</button>
+  <button class="calc-btn" data-val=".">.</button>
+  <button class="calc-btn equals" data-act="equals">=</button>
+</div>
+
+    </div>
+  </div>
+</section>
+
+    </main>
+  </div>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>

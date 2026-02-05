@@ -1,0 +1,11 @@
+{
+  "Grade 4": {
+    "Mathematics": ["Whole numbers", "Fractions", "Measurement"],
+    "English": ["Reading", "Grammar", "Writing"],
+    "Natural Sciences": ["Living and non-living things", "Energy"]
+  },
+  "Grade 5": {
+    "Mathematics": ["Fractions", "Decimals", "Perimeter & Area"],
+    "English": ["Comprehension", "Language structures"]
+  }
+}
